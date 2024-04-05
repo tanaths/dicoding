@@ -37,20 +37,18 @@ _Dataset_ yang digunakan adalah _Wine Quality_ dari [UCI Datasets](https://archi
 * _alchohol_: jumlah konsentrat alkohol dalam _wine_.
 * _quality_: kualitas _wine_.
 
-Berikut Gambar 3 menunjukkan hasil pengecekan _null values_ pada _dataset white wine quality_. Berdasarkan Gambar 3, semua data terisi dengan lengkap.
-![null values](https://github.com/tanaths/dicoding/blob/main/Submission_Belajar_Machine_Learning_Terapan/Submission_1/graph/data_is_null.png "Checking null values")
-
 **Langkah-langkah memahami data**:
 Untuk memahami data lebih lanjut, EDA (_Exploratory Data Analysis)_ terdiri atas sejumlah langkah:
-* Memeriksa gambaran besar dari kumpulan data (deskripsi kumpulan data, informasi tipe data, dan bentuk data atau _shape_). Gambar 1 menunjukkan deskripsi data _white wine quality_.
-![data description](https://github.com/tanaths/dicoding/blob/main/Submission_Belajar_Machine_Learning_Terapan/Submission_1/graph/data_description.png "Description of data")
-Gambar 2 menunjukkan bentuk atau _shape_ dari _dataset_. _Dataset_ terdiri dari 4898 baris dan 12 kolom.
-![data shape](https://github.com/tanaths/dicoding/blob/main/Submission_Belajar_Machine_Learning_Terapan/Submission_1/graph/shape.png "Shape of data")
-Gambar 3 menunjukkan tipe data. Terdapat 11 fitur memiliki tipe data "float" sebagai fitur masukan dan 1 fitur target memiliki tipe data "object".
-![data types](https://github.com/tanaths/dicoding/blob/main/Submission_Belajar_Machine_Learning_Terapan/Submission_1/graph/datatypes.png, "Data types")
+* Memeriksa gambaran besar dari kumpulan data (deskripsi kumpulan data, informasi tipe data, dan bentuk data atau _shape_).
+    * Gambar 1 menunjukkan deskripsi data _white wine quality_.
+    ![data description](https://github.com/tanaths/dicoding/blob/main/Submission_Belajar_Machine_Learning_Terapan/Submission_1/graph/data_description.png "Description of data")
+    * Gambar 2 menunjukkan bentuk atau _shape_ dari _dataset_. _Dataset_ terdiri dari 4898 baris dan 12 kolom.
+    ![data shape](https://github.com/tanaths/dicoding/blob/main/Submission_Belajar_Machine_Learning_Terapan/Submission_1/graph/shape.png "Shape of data")
+    * Gambar 3 menunjukkan tipe data. Terdapat 11 fitur memiliki tipe data "float" sebagai fitur masukan dan 1 fitur target memiliki tipe data "object".
+    ![data types](https://github.com/tanaths/dicoding/blob/main/Submission_Belajar_Machine_Learning_Terapan/Submission_1/graph/datatypes.png, "Data types")
 * Memeriksa nilai _null_. Berdasarkan Gambar 4, semua data terisi dengan lengkap.
 ![null values](https://github.com/tanaths/dicoding/blob/main/Submission_Belajar_Machine_Learning_Terapan/Submission_1/graph/data_is_null.png "Checking null values")
-* Memeriksa distribusi dan korelasi data. Gambar 5 menunjukkan distribusi data.
+* Memeriksa distribusi data. Gambar 5 menunjukkan distribusi data.
 ![distribution](https://github.com/tanaths/dicoding/blob/main/Submission_Belajar_Machine_Learning_Terapan/Submission_1/graph/data_distribution.png "distribution")
 Berdasarkan Gambar 5, fitur tersebut mengikuti distribusi normal meskipun ada beberapa yang mengalami _right-skewed_.
 
