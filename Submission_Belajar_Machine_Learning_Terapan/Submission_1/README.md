@@ -45,7 +45,7 @@ Untuk memahami data lebih lanjut, EDA (_Exploratory Data Analysis)_ terdiri atas
     * Gambar 2 menunjukkan bentuk atau _shape_ dari _dataset_. _Dataset_ terdiri dari 4898 baris dan 12 kolom.
     ![data shape](https://github.com/tanaths/dicoding/blob/main/Submission_Belajar_Machine_Learning_Terapan/Submission_1/graph/shape.png "Shape of data")
     * Gambar 3 menunjukkan tipe data. Terdapat 11 fitur memiliki tipe data "float" sebagai fitur masukan dan 1 fitur target memiliki tipe data "object".
-    ![data types](https://github.com/tanaths/dicoding/blob/main/Submission_Belajar_Machine_Learning_Terapan/Submission_1/graph/datatypes.png, "Data types")
+    ![data types](https://github.com/tanaths/dicoding/blob/main/Submission_Belajar_Machine_Learning_Terapan/Submission_1/graph/datatypes.png "Data types")
 * Memeriksa nilai _null_. Berdasarkan Gambar 4, semua data terisi dengan lengkap.
 ![null values](https://github.com/tanaths/dicoding/blob/main/Submission_Belajar_Machine_Learning_Terapan/Submission_1/graph/data_is_null.png "Checking null values")
 * Memeriksa distribusi data. Gambar 5 menunjukkan distribusi data.
