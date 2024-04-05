@@ -21,10 +21,8 @@ Dalam rangka meningkatkan kualitas produksi _white wine_, penelitian ini bertuju
 * Metrik yang digunakan adalah ROC dan AUC. Metrik ini lebih cocok digunakan untuk _dataset_ kualitas _white wine_ yang memiliki jumlah _dataset_ yang tidak seimbang.
 
 ## Pemahaman Data (_Data Understanding_)
-_Dataset_ yang digunakan adalah _Wine Quality_ dari [UCI Datasets](https://archive.ics.uci.edu/dataset/186/wine+quality). _Dataset white wine quality_ memiliki karakteristik multivariat yang berisi 4898 _instances_ dan 11 fitur untuk tipe _real_ dan 1 fitur dengan tipe objek.Gambar 1 menunjukkan deskripsi data _white wine quality_.
-![data description](https://github.com/tanaths/dicoding/blob/main/Submission_Belajar_Machine_Learning_Terapan/Submission_1/graph/data_description.png "Description of data")
-Gambar 2 menunjukkan bentuk atau _shape_ dari _dataset_. _Dataset_ terdiri dari 4898 baris dan 12 kolom.
-![data shape](https://github.com/tanaths/dicoding/blob/main/Submission_Belajar_Machine_Learning_Terapan/Submission_1/graph/datatypes.png "Shape of data")
+_Dataset_ yang digunakan adalah _Wine Quality_ dari [UCI Datasets](https://archive.ics.uci.edu/dataset/186/wine+quality). _Dataset white wine quality_ memiliki karakteristik multivariat yang berisi 4898 _instances_ dan 11 fitur untuk tipe _real_ dan 1 fitur dengan tipe objek.
+
 **_Dataset white wine_ memiliki 12 atribut sebagai berikut**:
 * _fixed_acidity_: keasaman yang tetap berada dalam cairan saat direbus, tidak mudah menguap.
 * _volatile_acidity_: ukuran asam gas _wine_ yang menyebabkan bau dan rasa cuka.
@@ -44,25 +42,32 @@ Berikut Gambar 3 menunjukkan hasil pengecekan _null values_ pada _dataset white 
 
 **Langkah-langkah memahami data**:
 Untuk memahami data lebih lanjut, EDA (_Exploratory Data Analysis)_ terdiri atas sejumlah langkah:
-* Memeriksa gambaran besar dari kumpulan data (deskripsi kumpulan data, informasi tipe data, dan bentuk data atau _shape_).
-* Memeriksa nilai _null_.
-* Memeriksa distribusi data.
-* Menggambarkan heatmap untuk korelasi.
+* Memeriksa gambaran besar dari kumpulan data (deskripsi kumpulan data, informasi tipe data, dan bentuk data atau _shape_). Gambar 1 menunjukkan deskripsi data _white wine quality_.
+![data description](https://github.com/tanaths/dicoding/blob/main/Submission_Belajar_Machine_Learning_Terapan/Submission_1/graph/data_description.png "Description of data")
+Gambar 2 menunjukkan bentuk atau _shape_ dari _dataset_. _Dataset_ terdiri dari 4898 baris dan 12 kolom.
+![data shape](https://github.com/tanaths/dicoding/blob/main/Submission_Belajar_Machine_Learning_Terapan/Submission_1/graph/shape.png "Shape of data")
+Gambar 3 menunjukkan tipe data. Terdapat 11 fitur memiliki tipe data "float" sebagai fitur masukan dan 1 fitur target memiliki tipe data "object".
+![data types](https://github.com/tanaths/dicoding/blob/main/Submission_Belajar_Machine_Learning_Terapan/Submission_1/graph/datatypes.png, "Data types")
+* Memeriksa nilai _null_. Berdasarkan Gambar 4, semua data terisi dengan lengkap.
+![null values](https://github.com/tanaths/dicoding/blob/main/Submission_Belajar_Machine_Learning_Terapan/Submission_1/graph/data_is_null.png "Checking null values")
+* Memeriksa distribusi dan korelasi data. Gambar 5 menunjukkan distribusi data.
+![distribution](https://github.com/tanaths/dicoding/blob/main/Submission_Belajar_Machine_Learning_Terapan/Submission_1/graph/data_distribution.png "distribution")
+Berdasarkan Gambar 5, fitur tersebut mengikuti distribusi normal meskipun ada beberapa yang mengalami _right-skewed_.
 
 ## Persiapan Data (_Data Preparation_)
 Persiapan data dilakukan dengan beberapa langkah yang meliputi:
-* _Feature importances_ atau fitur penting. Ini bertujuan untuk mengetahui fitur mana yang berpengaruh terhadap kualitas _wine_. _Feature importances_ dilakukan dengan identifikasi korelasi fitur masukan terhadap fitur target yaitu _quality_. Berikut Gambar 4 menunjukkan matriks korelasi antar fitur.
+* _Feature importances_ atau fitur penting. Ini bertujuan untuk mengetahui fitur mana yang berpengaruh terhadap kualitas _wine_. _Feature importances_ dilakukan dengan identifikasi korelasi fitur masukan terhadap fitur target yaitu _quality_. Berikut Gambar 6 menunjukkan matriks korelasi antar fitur.
 ![correlation](https://github.com/tanaths/dicoding/blob/main/Submission_Belajar_Machine_Learning_Terapan/Submission_1/graph/data_correlation.png "Correlation each feature")
-Berdasarkan hasil korelasi pada Gambar 4, fitur `alcohol` dan `density` memiliki korelasi terbesar dengan fitur target (sekitar 0,44 dan -0,31). Selain itu, fitur `sulphates`, `free sulfur dioxide`, dan `citric acid` memiliki korelasi terkecil (sekitar -0,01 ~ 0,05). Demikian, ketiga fitur ini dihilangkan. Sisanya, fitur pH memiliki korelasi positif yang lemah terhadap kualitas. Korelasi negatif lemah seperti `fixed acidity`, `volatile acidity`, `residual sugar`, `chlorides`, and `total sulfure dioxide`. Demikian, kedua korelasi lemah (positif dan negatif) tetap dimasukkan sebagai fitur penting. Semakin tinggi skor suatu fitur, semakin besar pengaruhnya terhadap model untuk memprediksi suatu variabel tertentu.
+Berdasarkan hasil korelasi pada Gambar 6, fitur `alcohol` dan `density` memiliki korelasi terbesar dengan fitur target (sekitar 0,44 dan -0,31). Selain itu, fitur `sulphates`, `free sulfur dioxide`, dan `citric acid` memiliki korelasi terkecil (sekitar -0,01 ~ 0,05). Demikian, ketiga fitur ini dihilangkan. Sisanya, fitur pH memiliki korelasi positif yang lemah terhadap kualitas. Korelasi negatif lemah seperti `fixed acidity`, `volatile acidity`, `residual sugar`, `chlorides`, and `total sulfure dioxide`. Demikian, kedua korelasi lemah (positif dan negatif) tetap dimasukkan sebagai fitur penting. Semakin tinggi skor suatu fitur, semakin besar pengaruhnya terhadap model untuk memprediksi suatu variabel tertentu.
 
-* Gambar 5 menunjukkan beberapa hubungan antar fitur:
+* Gambar 7 menunjukkan beberapa hubungan antar fitur:
 ![pairplot](https://github.com/tanaths/dicoding/blob/main/Submission_Belajar_Machine_Learning_Terapan/Submission_1/graph/data_correlation.png "Correlation each feature")
     - Kualitas wine menurun dengan meningkatnya volatile acidity. Sementara itu, kualitas wine meningkat seiring dengan meningkatnya fixed acidity (keasaman tetap).
     - Kualitas wine meningkat seiring meningkatnya level alkohol.
 * _Encoding category_ dengan membuat klasifikasi biner berdasarkan variabel target. Karena '_wine quality_' masih terklasifikasi dalam rentang 3 hingga 9, _encoding category_ biner diperlukan untuk mengelompokkan semua jenis kualitas wine ke dalam 2 kategori, yaitu '_low_' dan '_good_'. Setiap _wine_ yang memiliki kualitas >= 7 akan dikategorikan sebagai kualitas baik (_good_), dan di bawah 7 sebagai kualitas buruk (_low_). Setelah mengkodekan kategori ke dalam klasifikasi biner, dihasilkan 3838 _wine_ berkualitas buruk dan 1060 _wine_ berkualitas baik.
 * _Feature engineering_ dengan _StandardScaler()_. _StandardScaler()_ perlu digunakan karena setiap fitur memiliki rentang nilai yang berbeda sehingga normalisasi nilai diperlukan.
 
-**Mengapa langkah-langkah ini menjadi penting dalam persiapan data?** Karena persiapan data yang efektif penting untuk membangun model yang baik pada _dataset white wine_. _Feature importances_ membantu mengidentifikasi fitur-fitur penting yang berpengaruh dalam kualitas _wine_, sementara _encoding category_ menyederhanakan _input_ untuk model. Selain itu, _feature engineering_ seperti _StandardSaler()_ memastikan fitur numerik berada dalam skala yang konsisten, sehingga dapat mencegah bias. Lalu, rasio _training set_ dan _test set_ yang digunakan adalah 80:20. Pembagian ini merupakan rasio yang paling umum digunakan untuk melatih model.
+Persiapan data yang efektif penting untuk membangun model yang baik pada _dataset white wine_. _Feature importances_ membantu mengidentifikasi fitur-fitur penting yang berpengaruh dalam kualitas _wine_, sementara _encoding category_ menyederhanakan _input_ untuk model. Selain itu, _feature engineering_ seperti _StandardSaler()_ memastikan fitur numerik berada dalam skala yang konsisten, sehingga dapat mencegah bias. Lalu, rasio _training set_ dan _test set_ yang digunakan adalah 80:20. Pembagian ini merupakan rasio yang paling umum digunakan untuk melatih model.
 
 ## Pemodelan (_Modelling_)
 Setiap algoritma dilakukan dengan sejumlah langkah berikut:
@@ -132,7 +137,7 @@ Setelah membandingkan ketiga model ini menggunakan kurva ROC dan skor AUC, dapat
 Penjelasan: Tingginya nilai AUC _Random Forest Classifier_ pada kasus ini dapat dikaitkan dengan sifat ensembelnya, yang secara inheren menangani hubungan yang kompleks dan tidak terlalu sensitif terhadap _hyperparameter tuning_. Walaupun begitu, pengaturan default pada RFC sudah cukup efisien untuk dataset kasus ini, sedangkan _logistic regression_ dan SVM sudah dioptimalkan secara efektif dengan _tuning_ yang dipilih.
 
 # Evaluation
-Pada Gambar 6 menunjukkan perbandingan evaluasi kinerja model menggunakan ROC Curve dan AUC Score.
+Pada Gambar 8 menunjukkan perbandingan evaluasi kinerja model menggunakan ROC Curve dan AUC Score.
 ![AUC and ROC](https://github.com/tanaths/dicoding/blob/main/Submission_Belajar_Machine_Learning_Terapan/Submission_1/graph/ROC_and_AUC.png "ROC Curve and AUC Score")
 
 Secara umum, kurva ROC adalah representasi grafis dari kinerja model dengan sumbu x mewakili _false positive rate_ (FPR atau invers sensitivitas), dan sumbu y mewakili tingkat _true positive rate_ (TPR atau sensitivitas). Skor AUC adalah nilai skalar yang mewakili kinerja keseluruhan _classifier_.
