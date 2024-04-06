@@ -55,7 +55,7 @@ Untuk memahami data lebih lanjut, EDA (_Exploratory Data Analysis)_ terdiri atas
 
 
 2. Gambar 1 menunjukkan bentuk atau _shape_ dari _dataset_. _Dataset_ terdiri dari 4898 baris dan 12 kolom.
-![data shape](https://github.com/tanaths/dicoding/blob/main/Submission_Belajar_Machine_Learning_Terapan/Submission_1/graph/shape.png?raw=True "Shape of data")
+![data shape](https://github.com/tanaths/dicoding/blob/main/Submission_Belajar_Machine_Learning_Terapan/Submission_1/graph/data_shape.png?raw=True "Shape of data")
 3. Tabel 2 menunjukkan tipe data. 
 
     |     | Column               | Non-Null Count | Dtype   |
